@@ -1,0 +1,14 @@
+{
+  "name": "proyectonode",
+  "version": "1.0.1",
+  "description": "primer proyecto usando nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlos Andres Martinez c4rlosc7@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^13.2.2"
+  }
+}
