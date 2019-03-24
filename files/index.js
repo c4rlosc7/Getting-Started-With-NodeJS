@@ -15,7 +15,8 @@ switch (command) {
         functiones.create(argv);
         break;
 
-    case 'update':
+    case 'showStudent':
+        functiones.showStudent(argv);
         break;
 
     case 'delete':

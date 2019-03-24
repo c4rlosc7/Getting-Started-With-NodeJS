@@ -46,8 +46,22 @@ const show = () =>{
     });
 }
 
+const showStudent = (n) => {
+    getList();
+    let student = studentList.find(s => s.name == n.name);
+    if (!student){
+        console.log('No éxiste este estudiante')
+    }else{
+        console.log(' Notas de ' + student.name)
+        console.log(' Math: ' + student.math)
+        console.log(' English: ' + student.english)
+        console.log(' Program: ' + student.program + '\n')
+    }    
+}
+
 
 module.exports = {
     create,
-    show
+    show,
+    showStudent
 }
