@@ -27,6 +27,7 @@ const create = {
 
 const argv = require('yargs')
             .command('create', 'Crear un estudiante en la DB', create)
+            .command('show', 'Muestra los estudiantes con sus datos.')
             .argv;
 
 module.exports = {

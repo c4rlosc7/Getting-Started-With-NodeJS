@@ -12,7 +12,7 @@ const create = (studentIn) => {
     let duplicate = studentList.find(n => n.name == studentIn.name);
     if (!duplicate){
         studentList.push(student);
-        console.log(studentList);
+        // console.log(studentList);
         save();        
     }else{
         console.log('Ya éxiste el estudiante!!!');
@@ -36,6 +36,18 @@ const save = () => {
     });
 }
 
+const show = () =>{
+    getList();
+    studentList.forEach(element => {
+        console.log(' Notas de ' + element.name)
+        console.log(' Math: ' + element.math)
+        console.log(' English: ' + element.english)
+        console.log(' Program: ' + element.program + '\n')
+    });
+}
+
+
 module.exports = {
-    create
+    create,
+    show
 }
