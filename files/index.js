@@ -16,12 +16,20 @@ switch (command) {
         break;
 
     case 'showStudent':
-        functiones.showStudent(argv);
+        functiones.showStudent(argv.n);
         break;
 
-    case 'delete':
-
+    case 'winMath':
+        functiones.winMath();
         break;
+
+    case 'ave':
+        functiones.averageStudent(argv.n);
+        break;
+
+    case 'ave3':
+        functiones.aveUpThree();
+        break;        
 
     default:
         console.log('No ingresó un commando éxistente!!!');        

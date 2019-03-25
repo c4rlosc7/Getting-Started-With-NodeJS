@@ -48,7 +48,7 @@ const show = () =>{
 
 const showStudent = (n) => {
     getList();
-    let student = studentList.find(s => s.name == n.name);
+    let student = studentList.find(s => s.name == n);
     if (!student){
         console.log('No éxiste este estudiante')
     }else{
@@ -59,9 +59,48 @@ const showStudent = (n) => {
     }    
 }
 
+const winMath = () =>{
+    getList();
+    let win = studentList.filter(m => m.math >= 3);
+    if (win.length == 0){
+        console.log('Ningun estudiante va ganando!!!');
+    }else{
+        win.forEach(element => {
+            console.log(' Notas de ' + element.name)
+            console.log(' Math: ' + element.math + '\n')
+        });
+    }
+}
+
+const averageStudent = (n) => {
+    getList();
+    let student = studentList.find(s => s.name == n);
+    if (!student){
+        console.log('No éxiste este estudiante')
+    }else{
+        let ave = (student.math + student.english + student.program) / 3;
+        student.average = ave;
+        console.log(' El promedio del estudiante es, ' + ave)
+    }    
+}
+
+const aveUpThree = () =>{
+    getList();    
+    studentList.forEach(element => {
+        averageStudent(element.name)      
+    });
+    let ave3 = studentList.filter(m => m.average > 3);
+    ave3.forEach(element => {
+        console.log(' Promedio de encina de 3' + element.name)
+        console.log(' Promedio: ' + element.average + '\n')  
+    });    
+}
 
 module.exports = {
     create,
     show,
-    showStudent
+    showStudent,
+    winMath,
+    averageStudent,
+    aveUpThree
 }
