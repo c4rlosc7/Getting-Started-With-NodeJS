@@ -105,11 +105,25 @@ const update = (name, course, score) => {
     }
 }
 
+const del = (name) => {
+    console.log(name)
+    getList();
+    let newList = studentList.filter(m => m.name != name);
+    console.log(newList)
+    if (newList.length === studentList.length) {
+        console.log('Ningun estudiante tiene el nombre ingresado!!!');
+    } else {
+        studentList = newList;
+        save();
+    }   
+}
+
 module.exports = {
     create,
     show,
     showStudent,
     winMath,
     aveUpThree,
-    update
+    update,
+    del
 }

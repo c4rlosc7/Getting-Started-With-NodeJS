@@ -35,8 +35,8 @@ switch (command) {
         functiones.update(argv.n, argv.c, argv.sc);
         break;
 
-    case 'update':
-        functiones.update(argv.n);
+    case 'delete':
+        functiones.del(argv.n);
         break;
 
     default:
