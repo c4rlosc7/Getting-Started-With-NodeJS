@@ -1,6 +1,10 @@
 const fs = require('fs');
 studentList = [];
 
+/**
+ * Method to created new student
+ * @param {*} studentIn 
+ */
 const create = (studentIn) => {
     getList();
     let student = {
@@ -12,13 +16,15 @@ const create = (studentIn) => {
     let duplicate = studentList.find(n => n.name == studentIn.name);
     if (!duplicate) {
         studentList.push(student);
-        // console.log(studentList);
         save();
     } else {
         console.log('Ya éxiste el estudiante!!!');
     }
 }
 
+/**
+ * Method to get list to students
+ */
 const getList = () => {
     try {
         studentList = require('./list.json');
@@ -28,6 +34,9 @@ const getList = () => {
     }
 }
 
+/**
+ * Method to save student
+ */
 const save = () => {
     let data = JSON.stringify(studentList);
     fs.writeFile('list.json', data, (err) => {
@@ -36,6 +45,9 @@ const save = () => {
     });
 }
 
+/**
+ * Method to show list of the students
+ */
 const show = () => {
     getList();
     studentList.forEach(element => {
@@ -44,9 +56,13 @@ const show = () => {
     });
 }
 
-const showStudent = (n) => {
+/**
+ * Method to show student
+ * @param {*} name 
+ */
+const showStudent = (name) => {
     getList();
-    let student = studentList.find(s => s.name == n);
+    let student = studentList.find(s => s.name == name);
     if (!student) {
         console.log('No éxiste este estudiante')
     } else {
@@ -57,6 +73,9 @@ const showStudent = (n) => {
     }
 }
 
+/**
+ * Method to average of student
+ */
 const winMath = () => {
     getList();
     let win = studentList.filter(m => m.math >= 3);
@@ -70,9 +89,13 @@ const winMath = () => {
     }
 }
 
-const averageStudent = (n) => {
+/**
+ * Method to calculated average
+ * @param {*} name 
+ */
+const averageStudent = (name) => {
     getList();
-    let student = studentList.find(s => s.name == n);
+    let student = studentList.find(s => s.name == name);
     if (!student) {
         console.log('No éxiste este estudiante')
     } else {
@@ -82,6 +105,9 @@ const averageStudent = (n) => {
     }
 }
 
+/**
+ * Method to calculate average of the list student
+ */
 const aveUpThree = () => {
     getList();
     studentList.forEach(element => {
@@ -89,11 +115,16 @@ const aveUpThree = () => {
     });
     let ave3 = studentList.filter(m => m.average > 3);
     ave3.forEach(element => {
-        console.log(' Promedio de encina de 3' + element.name)
-        console.log(' Promedio: ' + element.average + '\n')
+        console.log(' Nombre: ' + element.name + ' Promedio: ' + element.average + '\n')
     });
 }
 
+/**
+ * Method to update student
+ * @param {*} name 
+ * @param {*} course 
+ * @param {*} score 
+ */
 const update = (name, course, score) => {
     getList();
     let findStudent = studentList.find(s => s.name == name);
@@ -105,8 +136,11 @@ const update = (name, course, score) => {
     }
 }
 
+/**
+ * Method to delete student
+ * @param {*} name 
+ */
 const del = (name) => {
-    console.log(name)
     getList();
     let newList = studentList.filter(m => m.name != name);
     console.log(newList)

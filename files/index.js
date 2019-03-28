@@ -1,5 +1,5 @@
 const { argv } = require('./yargs');
-const functiones = require('./funciones');
+const functions = require('./functions');
 
 // console.log(argv)
 // console.log(' posicion 0 ' + argv._[0])
@@ -8,35 +8,35 @@ let command = argv._[0];
 
 switch (command) {
     case 'show':
-        functiones.show();
+        functions.show();
         break;
 
     case 'create':
-        functiones.create(argv);
+        functions.create(argv);
         break;
 
     case 'showStudent':
-        functiones.showStudent(argv.n);
+        functions.showStudent(argv.n);
         break;
 
     case 'winMath':
-        functiones.winMath();
+        functions.winMath();
         break;
 
     /*case 'ave':
-        functiones.averageStudent(argv.n);
+        functions.averageStudent(argv.n);
         break;*/
 
     case 'ave3':
-        functiones.aveUpThree();
+        functions.aveUpThree();
         break;
 
     case 'update':
-        functiones.update(argv.n, argv.c, argv.sc);
+        functions.update(argv.n, argv.c, argv.sc);
         break;
 
     case 'delete':
-        functiones.del(argv.n);
+        functions.del(argv.n);
         break;
 
     default:
