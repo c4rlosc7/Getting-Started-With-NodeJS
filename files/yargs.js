@@ -35,9 +35,13 @@ const averageStudent = {
 
 const update = {
     name,
-    course: {
+    course : {
         demand: true,
         alias: 'c'
+    },
+    score : {
+        demand: true,
+        alias: 'sc'
     }
 }
 
@@ -46,10 +50,12 @@ const del = {
 }
 
 const argv = require('yargs')
-            .command('create', 'Crear un estudiante en la DB', create)
+            .command('create', 'Crear un estudiante en la DB.', create)
             .command('show', 'Muestra los estudiantes con sus datos.')
             .command('showStudent', 'Muestra los estudiantes con sus datos.', showStudent)
-            .command('showStudent', 'Muestra el promedio del estudiante ingresado.', averageStudent)
+            .command('ave3', 'Muestra el promedio del estudiante ingresado.', averageStudent)
+            .command('update', 'Actualiza la nota del estudiante seleccionado.', update)
+            .command('delete', 'Elimina el estudiante seleccionado.', del)
             .argv;
 
 module.exports = {

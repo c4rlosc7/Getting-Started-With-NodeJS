@@ -10,11 +10,11 @@ const create = (studentIn) => {
         program: studentIn.program
     };
     let duplicate = studentList.find(n => n.name == studentIn.name);
-    if (!duplicate){
+    if (!duplicate) {
         studentList.push(student);
         // console.log(studentList);
-        save();        
-    }else{
+        save();
+    } else {
         console.log('Ya éxiste el estudiante!!!');
     }
 }
@@ -36,35 +36,33 @@ const save = () => {
     });
 }
 
-const show = () =>{
+const show = () => {
     getList();
     studentList.forEach(element => {
         console.log(' Notas de ' + element.name)
-        console.log(' Math: ' + element.math)
-        console.log(' English: ' + element.english)
-        console.log(' Program: ' + element.program + '\n')
+        console.log(' Math: ' + element.math + ' English: ' + element.english + ' Program: ' + element.program + '\n')
     });
 }
 
 const showStudent = (n) => {
     getList();
     let student = studentList.find(s => s.name == n);
-    if (!student){
+    if (!student) {
         console.log('No éxiste este estudiante')
-    }else{
+    } else {
         console.log(' Notas de ' + student.name)
         console.log(' Math: ' + student.math)
         console.log(' English: ' + student.english)
         console.log(' Program: ' + student.program + '\n')
-    }    
+    }
 }
 
-const winMath = () =>{
+const winMath = () => {
     getList();
     let win = studentList.filter(m => m.math >= 3);
-    if (win.length == 0){
+    if (win.length == 0) {
         console.log('Ningun estudiante va ganando!!!');
-    }else{
+    } else {
         win.forEach(element => {
             console.log(' Notas de ' + element.name)
             console.log(' Math: ' + element.math + '\n')
@@ -75,25 +73,36 @@ const winMath = () =>{
 const averageStudent = (n) => {
     getList();
     let student = studentList.find(s => s.name == n);
-    if (!student){
+    if (!student) {
         console.log('No éxiste este estudiante')
-    }else{
+    } else {
         let ave = (student.math + student.english + student.program) / 3;
         student.average = ave;
-        console.log(' El promedio del estudiante es, ' + ave)
-    }    
+        // console.log(' El promedio del estudiante es, ' + ave)
+    }
 }
 
-const aveUpThree = () =>{
-    getList();    
+const aveUpThree = () => {
+    getList();
     studentList.forEach(element => {
-        averageStudent(element.name)      
+        averageStudent(element.name)
     });
     let ave3 = studentList.filter(m => m.average > 3);
     ave3.forEach(element => {
         console.log(' Promedio de encina de 3' + element.name)
-        console.log(' Promedio: ' + element.average + '\n')  
-    });    
+        console.log(' Promedio: ' + element.average + '\n')
+    });
+}
+
+const update = (name, course, score) => {
+    getList();
+    let findStudent = studentList.find(s => s.name == name);
+    if (!findStudent) {
+        console.log('El estudiante no éxiste!!!')
+    } else {
+        findStudent[course] = score;
+        save();
+    }
 }
 
 module.exports = {
@@ -101,6 +110,6 @@ module.exports = {
     show,
     showStudent,
     winMath,
-    averageStudent,
-    aveUpThree
+    aveUpThree,
+    update
 }

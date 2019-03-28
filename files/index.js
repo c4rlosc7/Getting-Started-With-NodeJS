@@ -23,15 +23,23 @@ switch (command) {
         functiones.winMath();
         break;
 
-    case 'ave':
+    /*case 'ave':
         functiones.averageStudent(argv.n);
-        break;
+        break;*/
 
     case 'ave3':
         functiones.aveUpThree();
-        break;        
+        break;
+
+    case 'update':
+        functiones.update(argv.n, argv.c, argv.sc);
+        break;
+
+    case 'update':
+        functiones.update(argv.n);
+        break;
 
     default:
-        console.log('No ingresó un commando éxistente!!!');        
+        console.log('No ingresó un commando éxistente!!!');
         break;
 }
