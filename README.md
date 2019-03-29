@@ -15,5 +15,32 @@ project-using-nodejs
         |  - express.js
         |  - index.js
         |  - package.json
-        |  - public                                                
+        |  - public                                    
+  |  - server2
+        |  - public
+                |  - index.html
+        |  - average.js
+        |  - express.js
+        |  - index.js
+        |  - package.json
+        |  - public             
 </pre>
+
+> npm init
+> npm i express --save
+> node app 
+
+# HBS
+
+Handlebars provides the power necessary to let you build semantic templates effectively with no frustration. Handlebars is largely compatible with Mustache templates. In most cases it is possible to swap out Mustache with Handlebars and continue using your current templates.
+
+> npm i hbs --save
+
+
+# nodemon
+Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. Perfect for development. 
+
+> npm i -g nodemon
+
+Next command we allow render files js and hbs
+> nodemon src/app -e js, hbs
