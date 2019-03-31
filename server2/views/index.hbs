@@ -1,8 +1,12 @@
 {{>header}}
-<h1>Home</h1>
-<p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque nisi voluptate optio error,
-    assumenda repellat odio possimus aut, ut, inventore voluptates. Perferendis aut excepturi dolor
-    possimus. Totam excepturi quia sequi?
-</p>
+<h1>Estudiantes</h1>
+<form action="/average" method="post">
+    <input type="text" placeholder="Nombre" name="name" id="name">
+    <input type="number" placeholder="Nota 1" name="note1" id="note1">
+    <input type="number" placeholder="Nota 2" name="note2" id="note2">
+    <input type="number" placeholder="Nota 3" name="note3" id="note3">
+    <button>Calcular</button>
+</form>
+<br>
+{{{getStudentList}}}
 {{>footer}}

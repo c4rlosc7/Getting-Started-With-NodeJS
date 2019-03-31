@@ -44,3 +44,13 @@ Nodemon is a utility that will monitor for any changes in your source and automa
 
 Next command we allow render files js and hbs
 > nodemon src/app -e js, hbs
+
+localhost:3000/calc?name=carlos&note=2
+
+# Body parser
+Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+> npm install body-parser
+
+```java
+var bodyParser = require('body-parser')
+``` 

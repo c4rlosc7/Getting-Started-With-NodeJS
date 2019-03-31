@@ -9,6 +9,7 @@
   "author": "Carlos Andres Martinez Cordoba c4rlosc7@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "hbs": "^4.0.3"
   }
