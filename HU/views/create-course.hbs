@@ -1,0 +1,13 @@
+{{>header}}
+<h1>Curso</h1>
+<form action="/save-course" method="post">
+    <input type="text" placeholder="Nombre" name="name" id="name">
+    <input type="text" placeholder="Descripcion" name="description" id="description">
+    <input type="number" placeholder="Valor" name="cost" id="cost">
+    <input type="text" placeholder="Modalidad" name="modal" id="modal">
+    <input type="number" placeholder="Intensidad" name="duration" id="duration">
+    <input type="text" placeholder="Estado" name="state" id="state">        
+    <button>Agregar</button>
+</form>
+<br>
+{{>footer}}
