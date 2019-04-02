@@ -5,9 +5,8 @@ body{
 }
 
 header{
-    padding-top: 16px;
-    padding-bottom: 48px;
     background-color: darkslategray;
+    padding: 53px 0px 48px 20px;
 }
 
 
@@ -21,4 +20,10 @@ footer{
 h1{
     font-size: 48px;
     margin-bottom: 16px;
+}
+
+.table-courses{
+    font-weight: bold; 
+    background-color: gray; 
+    color:white;
 }

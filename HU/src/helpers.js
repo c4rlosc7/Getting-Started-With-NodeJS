@@ -19,20 +19,17 @@ hbs.registerHelper('saveCourse', (name, description, cost, modal, duration, stat
 
 hbs.registerHelper('getCoursesList', () =>{
     studentList = require('./list-courses.json');
-    let textStudent = '<b>Lista de cursos </b><br>';
-
-    textStudent = textStudent + '  <b>Id</b> ' + 
-                                '  <b>Nombre</b> ' +
-                                '  <b>Descripcion</b> ' +                                     
-                                '  <b>Costo</b> ' +
-                                '  <b>Modalidad</b> ' +
-                                '  <b>Duracion</b> ' +  
-                                '  <b>Estado</b> <br>';      
+    let textStudent = '<div class="row">'
 
     studentList.forEach(element => {
-        textStudent = textStudent +  element.id + element.name + element.description +                                     
-                                     element.cost + element.modal + element.duration + 
-                                     element.state +'<br>';                                                                                                                                           
+        textStudent = textStudent + '<div class="col-sm-1">' + element.id + '</div>' + 
+                    '<div class="col-sm-2">' + element.name + '</div>' + 
+                    '<div class="col-sm-3">' + element.description + '</div>' + 
+                    '<div class="col-sm-1">' + element.cost + '</div>' +  
+                    '<div class="col-sm-2">' + element.modal + '</div>' +  
+                    '<div class="col-sm-2">' + element.duration + '</div>' +  
+                    '<div class="col-sm-1">' + element.state + '</div>';                                                                                                                                      
     });
+    textStudent + '</div>';
     return textStudent;
 });
