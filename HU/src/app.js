@@ -24,20 +24,33 @@ app.use('/js', express.static(dirNode_modules + '/bootstrap/dist/js'));
 
 app.set('view engine', 'hbs');
 
+/**
+ * Render to index 
+ */
 app.get('/', (req, res) => {
     res.render('index', { });
 });
 
+/**
+ * Render to list of courses
+ */
 app.get('/list-courses', (req, res) => {
         res.render('list-courses', { });
 });
 
+/**
+ * Render to create courses
+ */
 app.get('/create-course', (req, res) => {
     res.render('create-course', { });
 });
 
+/**
+ * Call helper save-course
+ */
 app.post('/save-course', (req, res) => {
     console.log(req.body)
+    console.log("GUARDAR")
     res.render('list-courses', {
         name: req.body.name,
         description: req.body.description,
@@ -48,6 +61,32 @@ app.post('/save-course', (req, res) => {
     });
 });
 
+/**
+ * Render to create courses
+ */
+app.get('/create-inscribed', (req, res) => {
+    res.render('create-inscribed', { });
+});
+
+/**
+ * Call helper save-course
+ */
+app.post('/save-inscribed', (req, res) => {
+    console.log(req.body)
+    console.log("GUARDAR")
+    res.render('list-inscribed', {
+        name: req.body.name,
+        description: req.body.description,
+        cost: parseInt(req.body.cost),
+        modal: req.body.modal,
+        duration: parseInt(req.body.duration),
+        state: req.body.state
+    });
+});
+
+/**
+ * Render to error page
+ */
 app.get('*', (req, res) =>{
     res.render('error', {
         student: 'error'

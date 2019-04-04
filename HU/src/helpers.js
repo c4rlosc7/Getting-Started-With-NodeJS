@@ -6,15 +6,18 @@ hbs.registerHelper('getAverage', (n1, n2, n3) => {
 
 hbs.registerHelper('saveCourse', (name, description, cost, modal, duration, state) =>{
     studentList = require('./list-courses.json');
-    let obj = {
-        name: name,
-        description: description,
-        cost: cost,
-        modal: modal,
-        duration: duration,
-        state: state
+    console.log(name)
+    if (name && description && cost && modal && duration && state) {
+        let obj = {
+            name: name,
+            description: description,
+            cost: cost,
+            modal: modal,
+            duration: duration,
+            state: state
+        }
+        studentList.push(obj);
     }
-    studentList.push(obj);
 });
 
 hbs.registerHelper('getCoursesList', () =>{
