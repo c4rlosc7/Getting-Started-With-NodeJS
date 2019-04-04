@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "document": "111145234",
+        "name": "carlos martinez",
+        "email": "c4rlosc7@gmail.com",
+        "phone": 3214563312,
+        "delete": false
+    },
+    {
+        "id": 2,
+        "document": "111145234",
+        "name": "carlos martinez",
+        "email": "c4rlosc7@gmail.com",
+        "phone": 3214563312,
+        "delete": false
+    },
+    {
+        "id": 3,
+        "document": "111145234",
+        "name": "carlos martinez",
+        "email": "c4rlosc7@gmail.com",
+        "phone": 3214563312,
+        "delete": false
+    }        
+]

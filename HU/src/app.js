@@ -35,18 +35,25 @@ app.get('/', (req, res) => {
  * Render to list of courses
  */
 app.get('/list-courses', (req, res) => {
-        res.render('list-courses', { });
+    res.render('list-courses', { });
 });
 
 /**
- * Render to create courses
+ * Render to list of courses
  */
-app.get('/create-course', (req, res) => {
-    res.render('create-course', { });
+app.get('/list-register', (req, res) => {
+    res.render('list-register', { });
 });
 
 /**
- * Call helper save-course
+ * Render to form course
+ */
+app.get('/form-course', (req, res) => {
+    res.render('form-course', { });
+});
+
+/**
+ * Call helper to save-course
  */
 app.post('/save-course', (req, res) => {
     console.log(req.body)
@@ -62,19 +69,17 @@ app.post('/save-course', (req, res) => {
 });
 
 /**
- * Render to create courses
+ * Render to form register
  */
-app.get('/create-inscribed', (req, res) => {
-    res.render('create-inscribed', { });
+app.get('/form-register', (req, res) => {
+    res.render('form-register', { });
 });
 
 /**
- * Call helper save-course
+ * Call helper save-register
  */
-app.post('/save-inscribed', (req, res) => {
-    console.log(req.body)
-    console.log("GUARDAR")
-    res.render('list-inscribed', {
+app.post('/save-register', (req, res) => {
+    res.render('list-register', {
         name: req.body.name,
         description: req.body.description,
         cost: parseInt(req.body.cost),
