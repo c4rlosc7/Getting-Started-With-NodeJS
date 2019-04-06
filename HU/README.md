@@ -6,5 +6,5 @@
 > npm install 
 
 ### run project
-> start npm 
+> npm start
 
