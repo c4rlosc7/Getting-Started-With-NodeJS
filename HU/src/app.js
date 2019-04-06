@@ -47,16 +47,13 @@ app.get('/form-course', (req, res) => {
  * Call helper to save-course
  */
 app.post('/save-course', (req, res) => {
-    console.log(req.query)
-    console.log("********************")
     res.render('course/list-courses', {
-        id: 5,
-        name: 'java',
-        description: 'este curso base de java',
-        cost: 120.000,
-        modal: 'presencial',
-        duration: 24,
-        state: 'disponible'
+        name: req.body.nameCourse,
+        description: req.body.description,
+        cost: req.body.cost,
+        modal: req.body.modal,
+        duration: req.body.duration,
+        state: req.body.state
     });
 });
 /*
