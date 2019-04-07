@@ -1,18 +1,17 @@
 {{>header}}
 <div class="container">
     <div class="row justify-content-sm-center">
-        <h1>Cursos disponibles</h1>
+        <h1>Estudiantes registrados</h1>
     </div>
     <div class="row table-courses">
-        <div class="col-sm-1">ID</div>
-        <div class="col-sm-2">NOMBRE</div>
-        <div class="col-sm-3">DESCRIPCIÓN</div>
-        <div class="col-sm-1">COSTO</div>
-        <div class="col-sm-2">MODALIDAD</div>
-        <div class="col-sm-2">DURACIÓN</div>
-        <div class="col-sm-1">ESTADO</div>
+        <div class="col-sm-1">INDICE</div>
+        <div class="col-sm-2">DOCUMENTO</div>
+        <div class="col-sm-3">NOMBRE</div>
+        <div class="col-sm-2">EMAIL</div>
+        <div class="col-sm-2">TELEFONO</div>
+        <div class="col-sm-1">ELIMINAR</div>
     </div>
-    {{saveCourse name description cost modal duration state}}
-    {{{getCoursesList}}}
+    {{saveRegister document name email phone}}
+    {{{getRegisterList}}}
 </div>
 {{>footer}}

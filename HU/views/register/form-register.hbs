@@ -3,20 +3,20 @@
     <div class="row justify-content-sm-center">
         <h1>Crear nuevo inscrito</h1>
     </div>
-    <form action="/save-course" method="post">
+    <form action="/save-register" method="post">
         <div class="row">
             <div class="col-sm-8 offset-sm-2">
                 <div class="form-group">
-                    <input type="number" class="form-control" id="idNameCourse" placeholder="Documento" required>
+                    <input type="number" class="form-control" id="idDocument" name="document" placeholder="Documento" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="idDescription" placeholder="Nombre" required>
+                    <input type="text" class="form-control" id="idName" name="name" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="idCost" placeholder="Correo" required>
+                    <input type="email" class="form-control" id="idEmail" name="email" placeholder="Correo" required>
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control" id="idCost" placeholder="Telefono" required>
+                    <input type="number" class="form-control" id="idPhone" name="phone" placeholder="Telefono" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary width-100">Crear inscrito</button>

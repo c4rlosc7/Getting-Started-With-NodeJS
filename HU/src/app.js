@@ -56,14 +56,6 @@ app.post('/save-course', (req, res) => {
         state: req.body.state
     });
 });
-/*
-        name: req.body.name,
-        description: req.body.description,
-        cost: parseInt(req.body.cost),
-        modal: req.body.modal,
-        duration: parseInt(req.body.duration),
-        state: req.body.state
-*/
 
 /**
  * Render to list of courses
@@ -84,12 +76,10 @@ app.get('/form-register', (req, res) => {
  */
 app.post('/save-register', (req, res) => {
     res.render('register/list-register', {
+        document: req.body.document,
         name: req.body.name,
-        description: req.body.description,
-        cost: parseInt(req.body.cost),
-        modal: req.body.modal,
-        duration: parseInt(req.body.duration),
-        state: req.body.state
+        email: req.body.email,
+        phone: parseInt(req.body.phone)
     });
 });
 

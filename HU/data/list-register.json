@@ -10,16 +10,16 @@
     {
         "id": 2,
         "document": "111145234",
-        "name": "carlos martinez",
-        "email": "c4rlosc7@gmail.com",
+        "name": "andres martinez",
+        "email": "andres@gmail.com",
         "phone": 3214563312,
         "delete": false
     },
     {
         "id": 3,
         "document": "111145234",
-        "name": "carlos martinez",
-        "email": "c4rlosc7@gmail.com",
+        "name": "woz",
+        "email": "woz@gmail.com",
         "phone": 3214563312,
         "delete": false
     }        
