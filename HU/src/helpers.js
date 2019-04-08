@@ -22,7 +22,7 @@ hbs.registerHelper('getCoursesList', () => {
     let index = 1;
     let textStudent = ''
     studentList.forEach(element => {
-        textStudent = textStudent + '<div class="row"><div class="col-sm-1">' + index + '</div>' +
+        textStudent = textStudent + '<div class="row border-table"><div class="col-sm-1">' + index + '</div>' +
             '<div class="col-sm-2">' + element.name + '</div>' +
             '<div class="col-sm-3">' + element.description + '</div>' +
             '<div class="col-sm-1">' + element.cost + '</div>' +
@@ -52,7 +52,7 @@ hbs.registerHelper('getRegisterList', () => {
     let index = 1;
     let textRegisters = ''
     registerList.forEach(element => {
-        textRegisters = textRegisters + '<div class="row">' +
+        textRegisters = textRegisters + '<div class="row border-table">' +
             '<div class="col-sm-1">' + index + '</div>' +
             '<div class="col-sm-2">' + element.document + '</div>' +
             '<div class="col-sm-3">' + element.name + '</div>' +

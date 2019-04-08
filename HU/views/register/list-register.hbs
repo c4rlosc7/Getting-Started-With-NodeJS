@@ -1,17 +1,21 @@
 {{>header}}
-<div class="container">
-    <div class="row justify-content-sm-center">
-        <h1>Estudiantes registrados</h1>
-    </div>
-    <div class="row table-courses">
-        <div class="col-sm-1">INDICE</div>
-        <div class="col-sm-2">DOCUMENTO</div>
-        <div class="col-sm-3">NOMBRE</div>
-        <div class="col-sm-2">EMAIL</div>
-        <div class="col-sm-2">TELEFONO</div>
-        <div class="col-sm-1">ELIMINAR</div>
-    </div>
-    {{saveRegister document name email phone}}
-    {{{getRegisterList}}}
-</div>
+
+<section>
+    <div class="container">
+        <div class="row justify-content-sm-center">
+            <h1>Estudiantes registrados</h1>
+        </div>
+        <div class="row table-courses">
+            <div class="col-sm-1">INDICE</div>
+            <div class="col-sm-2">DOCUMENTO</div>
+            <div class="col-sm-3">NOMBRE</div>
+            <div class="col-sm-2">EMAIL</div>
+            <div class="col-sm-2">TELEFONO</div>
+            <div class="col-sm-1">ELIMINAR</div>
+        </div>
+        {{saveRegister document name email phone}}
+        {{{getRegisterList}}}
+    </div>    
+</section>
+
 {{>footer}}
