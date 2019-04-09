@@ -23,8 +23,8 @@ client.connect(function (err) {
   // Get the documents collection
   const collection = db.collection('students');
 
-  // Insert some documents
-  collection.insertOne({
+  // ------------------Insert some student---------------------
+  /*collection.insertOne({
     name: 'Messi',
     math: 4,
     english: 4,
@@ -35,7 +35,18 @@ client.connect(function (err) {
       return console.log('Error ingresando los datos.')
     }
     return console.log(result.ops)
-  })
+  })*/
+
+  // -------------------Find some student----------------------
+  collection.findOne({name: 'Messi'}, (err, result) => {
+    if (err) {
+      console.log('Error obteniendo los datos.')
+    }
+    if (!result) {
+      console.log('No se encontro el nombre.')
+    }
+    console.log(result)
+  });
 
   client.close();
 });
