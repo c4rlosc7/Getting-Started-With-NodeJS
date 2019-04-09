@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'hbs');
 
 // Set port:3000
-app.set('port', (process.env.PORT || 3000));
+const PORT = process.env.PORT || 3000;
 
 /**
  * Render to index 
@@ -100,6 +100,6 @@ app.get('*', (req, res) =>{
 });
 
 // console.log(__dirname)
-app.listen(app.get('port'), function(){
-    console.log('Server started on port:' + app.get('port'));
+app.listen(PORT, () => {
+    console.log('Server started on port:' + PORT);
 });

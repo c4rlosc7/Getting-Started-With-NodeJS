@@ -1,0 +1,54 @@
+# Mongo DB
+
+https://www.mongodb.com/download-center/community
+
+mongodb-win32-x86_64-2008plus-ssl-4.0.8
+
+- Descargar mongo-db zip
+
+- Descomprimir en C:/User/carlos/mongo-db
+
+***
+
+## Connect to MongoDB
+
+Create a new app.js file and add the following code to try out some basic CRUD operations using the MongoDB driver.
+
+```javascript
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:27017';
+
+// Database Name
+const dbName = 'myproject';
+
+// Create a new MongoClient
+const client = new MongoClient(url);
+
+// Use connect method to connect to the Server
+client.connect(function(err) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+
+  const db = client.db(dbName);
+
+  client.close();
+});
+```
+> node app.js
+
+(node:147180) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option __{ useNewUrlParser: true }__ to MongoClient.connect.
+Connected successfully to server
+
+```javascript
+// Create a new MongoClient
+const client = new MongoClient(url, { useNewUrlParser: true });
+```
+
+> node app.js
+
+Connected successfully to server
+
+***
