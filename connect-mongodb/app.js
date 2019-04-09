@@ -38,12 +38,20 @@ client.connect(function (err) {
   })*/
 
   // -------------------Find some student----------------------
-  collection.findOne({name: 'Messi'}, (err, result) => {
+  collection.findOne({ name: 'Messi' }, (err, result) => {
     if (err) {
       console.log('Error obteniendo los datos.')
     }
     if (!result) {
       console.log('No se encontro el nombre.')
+    }
+    console.log(result)
+  });
+
+  // --------------------Find some students--------------------
+  collection.find({math: 3}).toArray(function (err, result) {
+    if (err) {
+      console.log('Error encontrando los datos.')
     }
     console.log(result)
   });
