@@ -8,6 +8,12 @@ mongodb-win32-x86_64-2008plus-ssl-4.0.8
 
 - Descomprimir en C:/User/carlos/mongo-db
 
+- Crear una carpeta para almanecenar los datos __C:/User/carlos/mongo-data__
+
+> C:\Users\C4rlosc7\mongo-db\bin>mongod.exe --dbpath=/users/carlos/mongo-data
+
+documentacion: http://mongodb.github.io/node-mongodb-native/3.2/quick-start/quick-start/
+
 ***
 
 ## Connect to MongoDB

@@ -35,10 +35,10 @@ client.connect(function (err) {
       return console.log('Error ingresando los datos.')
     }
     return console.log(result.ops)
-  })*/
+  });*/
 
   // -------------------Find some student----------------------
-  collection.findOne({ name: 'Messi' }, (err, result) => {
+  /*collection.findOne({ name: 'Messi' }, (err, result) => {
     if (err) {
       console.log('Error obteniendo los datos.')
     }
@@ -46,15 +46,27 @@ client.connect(function (err) {
       console.log('No se encontro el nombre.')
     }
     console.log(result)
-  });
+  });*/
 
   // --------------------Find some students--------------------
-  collection.find({math: 3}).toArray(function (err, result) {
+  /*collection.find({math: 3}).toArray(function (err, result) {
     if (err) {
       console.log('Error encontrando los datos.')
     }
     console.log(result)
-  });
+  });*/
+
+  // --------------------Update some students--------------------
+  collection.updateOne({ name: 'Messi' }
+    , { $set: { english: 1 } }, function (err, result) {
+      if (err) {
+        console.log('Error encontrando los datos.')
+      }
+      console.log(result)
+    });
 
   client.close();
 });
+
+
+
