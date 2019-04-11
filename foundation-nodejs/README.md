@@ -9,3 +9,15 @@
 > npm start
 
 https://foundation-nodejs.herokuapp.com/
+***
+# Dependencies
+
+- body-parser
+- bootstrap
+- express
+- hbs
+- jquery
+- popper.js
+- mongoose
+
+***
