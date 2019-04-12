@@ -1,7 +1,9 @@
-var express = require('express');
-var path = require('path');
-var app = express();
-var bodyParser = require('body-parser')
+const express = require('express');
+const path = require('path');
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const { PORT } = require('./config/config');
 require('./helpers/helpers');
 
 // Public directory
@@ -9,7 +11,7 @@ const dirPublic = path.join(__dirname, '../public');
 app.use(express.static(dirPublic));
 
 // Bootstrap jquery popper.js
-const dirNodeModules = path.join(__dirname , '../node_modules')
+const dirNodeModules = path.join(__dirname, '../node_modules')
 app.use('/css', express.static(dirNodeModules + '/bootstrap/dist/css'));
 app.use('/js', express.static(dirNodeModules + '/jquery/dist'));
 app.use('/js', express.static(dirNodeModules + '/popper.js/dist'));
@@ -19,12 +21,17 @@ app.use('/js', express.static(dirNodeModules + '/bootstrap/dist/js'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes
-app.use(require('./routes/index'));
+app.use(require('./routes/routes'));
 
-// Set port:3000
-const PORT = process.env.PORT || 3004;
+// Connect to mongo db
+mongoose.connect('mongodb://localhost:27017/db_node_uda', { useNewUrlParser: true }, (err, result) =>{
+    if (err) {
+        return console.log(err)
+    }
+    console.log('Connect to mongodb')
+})
 
-// console.log(__dirname)
+// Listen on port
 app.listen(PORT, () => {
     console.log('Server started on port:' + PORT);
 });
