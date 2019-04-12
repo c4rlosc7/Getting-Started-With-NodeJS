@@ -1,6 +1,6 @@
 const hbs = require('hbs');
-const dataCourses = require('../data/list-courses.json');
-const dataRegisters = require('../data/list-register.json');
+const dataCourses = require('../../data/list-courses.json');
+const dataRegisters = require('../../data/list-register.json');
 
 hbs.registerHelper('saveCourse', (name, description, cost, modal, duration, state) => {
     let studentList = dataCourses;
