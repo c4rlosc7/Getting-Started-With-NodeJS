@@ -1,5 +1,5 @@
 {{>header}}
-
+{{showCourse}}
 <section>
     <div class="container">
         <div class="row justify-content-sm-center">
@@ -15,7 +15,7 @@
             <div class="col-sm-1">ESTADO</div>
         </div>
         {{saveCourse name description cost modal duration state}}
-        {{{getCoursesList}}}
+        {{{getCoursesList courseList}}}
     </div>    
 </section>
 

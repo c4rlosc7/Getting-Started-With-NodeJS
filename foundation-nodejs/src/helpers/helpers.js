@@ -17,8 +17,9 @@ hbs.registerHelper('saveCourse', (name, description, cost, modal, duration, stat
     }
 });
 
-hbs.registerHelper('getCoursesList', () => {
-    let studentList = dataCourses;
+hbs.registerHelper('getCoursesList', (courseList) => {
+    // let studentList = dataCourses;
+    let studentList = courseList;
     let index = 1;
     let textStudent = ''
     studentList.forEach(element => {
@@ -47,11 +48,12 @@ hbs.registerHelper('saveRegister', (document, name, email, phone) => {
     }
 });
 
-hbs.registerHelper('getRegisterList', () => {
-    let registerList = dataRegisters;
+hbs.registerHelper('getRegisterList', (registerList) => {
+    //let registerList = dataRegisters;
+    let registersList = registerList;
     let index = 1;
     let textRegisters = ''
-    registerList.forEach(element => {
+    registersList.forEach(element => {
         textRegisters = textRegisters + '<div class="row border-table">' +
             '<div class="col-sm-1">' + index + '</div>' +
             '<div class="col-sm-2">' + element.document + '</div>' +

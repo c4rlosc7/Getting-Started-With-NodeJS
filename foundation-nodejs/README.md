@@ -68,6 +68,7 @@ const BlogPost = new Schema({
  const MyModel = mongoose.model('ModelName', mySchema);
  ```
 
+
  
 
 

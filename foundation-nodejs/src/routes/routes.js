@@ -44,11 +44,11 @@ app.post('/save-course', (req, res) => {
     courseModel.save((err, result) => {
         if (err) {
             res.render('course/list-courses', {
-                mostrar: err
+                showCourse: err
             });
         }
         res.render('course/list-courses', {
-            mostrar: result
+            showCourse: result
         });        
     })
 });
@@ -57,7 +57,15 @@ app.post('/save-course', (req, res) => {
  * Render to list of courses
  */
 app.get('/list-courses', (req, res) => {
-    res.render('course/list-courses', { });
+    CourseModel.find({}).exec((err, result) => {
+        console.log(result)
+        if (err) {
+            return console.log(err)
+        }
+        res.render('course/list-courses', {
+            courseList: result
+        });             
+    });
 });
 
 /**
@@ -81,11 +89,11 @@ app.post('/save-register', (req, res) => {
     registerModel.save((err, result) => {
         if (err) {
             res.render('register/list-register', {
-                mostrar: err
+                showRegister: err
             });
         }
         res.render('register/list-register', {
-            mostrar: result
+            showRegister: result
         });
     })
 });
@@ -94,7 +102,14 @@ app.post('/save-register', (req, res) => {
  * Render to list of courses
  */
 app.get('/list-register', (req, res) => {
-    res.render('register/list-register', { });
+    RegisterModel.find({}).exec((err, result) => {
+        if (err) {
+            return console.log(err)
+        }
+        res.render('register/list-register', {
+            registerList : result
+        });
+    });  
 });
 
 /**
