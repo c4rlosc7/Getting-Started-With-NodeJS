@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var hbs = require('hbs');
+var RegisterModel = require('./../models/registerModel');
+var CourseModel = require('./../models/courseModel');
 require('../helpers/helpers');
 
 // Partials directory
@@ -31,14 +33,24 @@ app.get('/form-course', (req, res) => {
  * Call helper to save-course
  */
 app.post('/save-course', (req, res) => {
-    res.render('course/list-courses', {
+    let courseModel = new CourseModel({
         name: req.body.nameCourse,
         description: req.body.description,
         cost: req.body.cost,
         modal: req.body.modal,
         duration: req.body.duration,
         state: req.body.state
-    });
+    })
+    courseModel.save((err, result) => {
+        if (err) {
+            res.render('course/list-courses', {
+                mostrar: err
+            });
+        }
+        res.render('course/list-courses', {
+            mostrar: result
+        });        
+    })
 });
 
 /**
@@ -59,12 +71,23 @@ app.get('/form-register', (req, res) => {
  * Call helper save-register
  */
 app.post('/save-register', (req, res) => {
-    res.render('register/list-register', {
+    let registerModel = new RegisterModel({
         document: req.body.document,
         name: req.body.name,
         email: req.body.email,
-        phone: parseInt(req.body.phone)
-    });
+        phone: parseInt(req.body.phone),
+        delete: false
+    })
+    registerModel.save((err, result) => {
+        if (err) {
+            res.render('register/list-register', {
+                mostrar: err
+            });
+        }
+        res.render('register/list-register', {
+            mostrar: result
+        });
+    })
 });
 
 /**
