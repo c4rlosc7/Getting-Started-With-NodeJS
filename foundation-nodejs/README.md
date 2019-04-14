@@ -77,6 +77,14 @@ mongoose-unique-validator is a plugin which adds pre-save validation for unique 
 
 https://www.npmjs.com/package/mongoose-unique-validator
 
+```javascript
+// on model.js
+ var uniqueValidator = require('mongoose-unique-validator');
+
+ var mySchema = mongoose.Schema(/* put your schema definition here */);
+ mySchema.plugin(uniqueValidator);
+ ```
+
 # bcrypt
 
 bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher, and presented at USENIX in 1999. Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an adaptive function: over time, the iteration count can be increased to make it slower, so it remains resistant to brute-force search attacks even with increasing computation power.
@@ -88,6 +96,10 @@ There are implementations of bcrypt for C, C++, C#, Go, Java, JavaScript, Elixir
 > npm i bcrypt
 
 https://www.npmjs.com/package/bcrypt
+
+```javascript
+ var hash = bcrypt.hashSync(myPlaintextPassword, salt);
+ ```
 
 # Font Awesome v4.7.0
 

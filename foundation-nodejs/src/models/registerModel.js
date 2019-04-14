@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
+var uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
  
 const registerSchema = new Schema({
     document: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    password: {
         type: String,
         required: true
     },
@@ -19,6 +25,8 @@ const registerSchema = new Schema({
         type: Boolean
     }    
 });
+
+registerSchema.plugin(uniqueValidator);
 
 const RegisterModel = mongoose.model('RegisterModel', registerSchema);
 

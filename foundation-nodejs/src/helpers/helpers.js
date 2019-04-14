@@ -35,11 +35,12 @@ hbs.registerHelper('getCoursesList', (courseList) => {
     return textStudent;
 });
 
-hbs.registerHelper('saveRegister', (document, name, email, phone) => {
+hbs.registerHelper('saveRegister', (document, password, name, email, phone) => {
     let registerList = dataRegisters;
-    if (document && name && email && phone) {
+    if (document && password && name && email && phone) {
         let obj = {
             document: document,
+            password: password,
             name: name,
             email: email,
             phone: phone

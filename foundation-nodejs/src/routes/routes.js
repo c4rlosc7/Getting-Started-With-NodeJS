@@ -79,23 +79,27 @@ app.get('/form-register', (req, res) => {
  * Call helper save-register
  */
 app.post('/save-register', (req, res) => {
+    const salt = 10;
     let registerModel = new RegisterModel({
         document: req.body.document,
+        password: bcrypt.hashSync(req.body.password, salt),
         name: req.body.name,
         email: req.body.email,
         phone: parseInt(req.body.phone),
         delete: false
-    })
+    });
     registerModel.save((err, result) => {
+        console.log(err)
+        console.log(result)
         if (err) {
-            res.render('register/list-register', {
+            res.render('register/welcome', {
                 showRegister: err
             });
         }
-        res.render('register/list-register', {
-            showRegister: result
+        res.render('register/welcome', {
+            showRegister: result.name
         });
-    })
+    });
 });
 
 /**
@@ -120,6 +124,13 @@ app.post('/login', (req, res) => {
             message: 'Bienvendio ' + result.name
         });
     });
+});
+
+/**
+ * Render to login form
+ */
+app.get('/form-login', (req, res) => {
+    res.render('login', {});
 });
 
 //var hash = bcrypt.hashSync(req.body.name, 10);

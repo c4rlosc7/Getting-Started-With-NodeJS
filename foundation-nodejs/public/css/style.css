@@ -26,6 +26,12 @@ h1{
     margin-bottom: 16px;
 }
 
+  /* mouse over link */
+  a:hover {
+    background-color: white !important;
+    color: blue !important;
+  }
+
 .header-title{
     font-size: 30px;
     font-weight: bold;
@@ -74,3 +80,44 @@ h1{
 .padding-10{
     padding: 10px;
 }
+
+
+/*form {
+    border: 3px solid #f1f1f1;
+  }*/
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .container-login{
+    margin: 20px 500px;
+  }
+  
+  .width-100{
+    width: 100%;
+  }
+  
+  /* Extra style for the cancel button (red) */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: gray;
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }

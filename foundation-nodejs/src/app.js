@@ -10,7 +10,7 @@ require('./helpers/helpers');
 const dirPublic = path.join(__dirname, '../public');
 app.use(express.static(dirPublic));
 
-// Bootstrap jquery popper.js
+// Bootstrap jquery popper.js 
 const dirNodeModules = path.join(__dirname, '../node_modules')
 app.use('/css', express.static(dirNodeModules + '/bootstrap/dist/css'));
 app.use('/css', express.static(dirNodeModules + '/font-awesome/css'));

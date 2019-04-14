@@ -1,12 +1,32 @@
 {{>header}}
 
 <section>
-    <h1>Login</h1>
-    <form action="" method="post">
-        <div class="row">
-            
+    <div class="row">
+        <div class="border-form col-sm-8 offset-sm-2">
+            <form action="">
+                <div class="row">
+                    <h1>Login</h1>
+                </div>
+                <div class="row">
+                    <label for="uname"><b>Documento</b></label>
+                    <input type="text" placeholder="Documento" name="document" required>
+                </div>
+                <div class="row">
+                    <label for="psw"><b>Contraseña</b></label>
+                    <input type="password" placeholder="Contraseña" name="psw" required>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-success width-100">Login</button>
+                </div>
+                <div class="row" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn col-sm-2">Cancelar</button>
+                    <span class="psw col-sm-3 offset-sm-7">Olvido <a href="#">contraseña?</a></span>
+                </div>
+            </form>
         </div>
-    </form>
+        <div class="col-sm-2"></div>
+    </div>
 </section>
 
 {{>footer}}
+<!--border-form-->
