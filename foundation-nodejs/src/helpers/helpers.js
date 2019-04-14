@@ -54,7 +54,7 @@ hbs.registerHelper('getRegisterList', (registerList) => {
     let index = 1;
     let textRegisters = ''
     registersList.forEach(element => {
-        textRegisters = textRegisters + '<form action="/delete-register" method="post"><div class="row border-table">' +
+        textRegisters = textRegisters + '<form action="/delete-register" method="post"><div class="row border-table padding-10">' +
             '<div class="col-sm-1">' + index + '</div>' +
             '<div class="col-sm-2">' + element.document + '</div>' +
             '<div class="col-sm-3">' + element.name + '</div>' +
