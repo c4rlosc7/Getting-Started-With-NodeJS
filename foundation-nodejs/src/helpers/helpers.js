@@ -25,7 +25,7 @@ hbs.registerHelper('getCoursesList', (courseList) => {
     studentList.forEach(element => {
         textStudent = textStudent + '<div class="row border-table"><div class="col-sm-1">' + index + '</div>' +
             '<div class="col-sm-2">' + element.name + '</div>' +
-            '<div class="col-sm-3">' + element.description + '</div>' +
+            '<div class="col-sm-3 text-truncate">' + element.description + '</div>' +
             '<div class="col-sm-1">' + element.cost + '</div>' +
             '<div class="col-sm-2">' + element.modal + '</div>' +
             '<div class="col-sm-2">' + element.duration + '</div>' +
@@ -54,14 +54,15 @@ hbs.registerHelper('getRegisterList', (registerList) => {
     let index = 1;
     let textRegisters = ''
     registersList.forEach(element => {
-        textRegisters = textRegisters + '<div class="row border-table">' +
+        textRegisters = textRegisters + '<form action="/delete-register" method="post"><div class="row border-table">' +
             '<div class="col-sm-1">' + index + '</div>' +
             '<div class="col-sm-2">' + element.document + '</div>' +
             '<div class="col-sm-3">' + element.name + '</div>' +
             '<div class="col-sm-2">' + element.email + '</div>' +
             '<div class="col-sm-2">' + element.phone + '</div>' +
-            '<div class="col-sm-1">ELIMINAR</div>' +
-            '</div>';
+            '<div class="col-sm-1">'+
+                '<button type="submit" class="btn btn-danger" name="name" value="'+element.name+'">Eliminar</button></div>' +
+            '</div></form>';
         index++;
     });
     return textRegisters;

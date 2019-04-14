@@ -1,9 +1,10 @@
-var express = require('express');
-var app = express();
-var path = require('path');
-var hbs = require('hbs');
-var RegisterModel = require('./../models/registerModel');
-var CourseModel = require('./../models/courseModel');
+const express = require('express');
+const app = express();
+const path = require('path');
+const hbs = require('hbs');
+const RegisterModel = require('./../models/registerModel');
+const CourseModel = require('./../models/courseModel');
+const bcrypt = require('bcrypt');
 require('../helpers/helpers');
 
 // Partials directory
@@ -13,20 +14,20 @@ hbs.registerPartials(dirPartials);
 // Engine setup
 const dirViews = path.join(__dirname, '../../template/views');
 app.set('view engine', 'hbs');
-app.set('views',dirViews);
+app.set('views', dirViews);
 
 /**
  * Render to index 
  */
 app.get('/', (req, res) => {
-    res.render('index', { });
+    res.render('index', {});
 });
 
 /**
  * Render to form course
  */
 app.get('/form-course', (req, res) => {
-    res.render('course/form-course', { });
+    res.render('course/form-course', {});
 });
 
 /**
@@ -49,7 +50,7 @@ app.post('/save-course', (req, res) => {
         }
         res.render('course/list-courses', {
             showCourse: result
-        });        
+        });
     })
 });
 
@@ -58,13 +59,12 @@ app.post('/save-course', (req, res) => {
  */
 app.get('/list-courses', (req, res) => {
     CourseModel.find({}).exec((err, result) => {
-        console.log(result)
         if (err) {
             return console.log(err)
         }
         res.render('course/list-courses', {
             courseList: result
-        });             
+        });
     });
 });
 
@@ -72,7 +72,7 @@ app.get('/list-courses', (req, res) => {
  * Render to form register
  */
 app.get('/form-register', (req, res) => {
-    res.render('register/form-register', { });
+    res.render('register/form-register', {});
 });
 
 /**
@@ -99,6 +99,32 @@ app.post('/save-register', (req, res) => {
 });
 
 /**
+ * 
+ */
+app.post('/login', (req, res) => {
+    RegisterModel.findOne({name: req.body.name}, (err, result) =>{
+        if (err) {
+            console.log(err)
+        }
+        if (!result) {
+            return res.render('login',{
+                message: "Usuario no esta registrado"
+            });
+        }
+        if (!bcrypt.compareSync(req.body.password, result.password)) {
+            return res.render('login',{
+                message: "Contraseña no es correcta"
+            });
+        }
+        res.render('login', {
+            message: 'Bienvendio ' + result.name
+        });
+    });
+});
+
+//var hash = bcrypt.hashSync(req.body.name, 10);
+
+/**
  * Render to list of courses
  */
 app.get('/list-register', (req, res) => {
@@ -107,15 +133,30 @@ app.get('/list-register', (req, res) => {
             return console.log(err)
         }
         res.render('register/list-register', {
-            registerList : result
+            registerList: result
         });
-    });  
+    });
+});
+
+/**
+ * Delete register
+ */
+app.post('/delete-register', (req, res) => {
+    console.log("Delete")
+    RegisterModel.findOneAndDelete({ name: req.body.name }, req.body, (err, result) => {
+        if (err) {
+            return console.log(err)
+        }
+        res.render('register/delete-register', {
+            name : result.name
+        });
+    });
 });
 
 /**
  * Render to error page
  */
-app.get('*', (req, res) =>{
+app.get('*', (req, res) => {
     res.render('error', {
         student: 'error'
     })
