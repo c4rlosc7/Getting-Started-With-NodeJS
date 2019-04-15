@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
 const path = require('path');
 const hbs = require('hbs');
 const RegisterModel = require('./../models/registerModel');
@@ -15,6 +16,7 @@ hbs.registerPartials(dirPartials);
 const dirViews = path.join(__dirname, '../../template/views');
 app.set('view engine', 'hbs');
 app.set('views', dirViews);
+app.set(morgan('dev'));
 
 /**
  * Render to index 
@@ -96,8 +98,12 @@ app.post('/save-register', (req, res) => {
                 showRegister: err
             });
         }
+        req.session.userSession = result._id
+        req.session.name = result.name
         res.render('register/welcome', {
-            showRegister: result.name
+            showRegister: result.name + ' session ' + req.session.userSession,
+            session: true,
+            name: req.session.name
         });
     });
 });
@@ -106,17 +112,17 @@ app.post('/save-register', (req, res) => {
  * 
  */
 app.post('/login', (req, res) => {
-    RegisterModel.findOne({name: req.body.name}, (err, result) =>{
+    RegisterModel.findOne({ name: req.body.name }, (err, result) => {
         if (err) {
             console.log(err)
         }
         if (!result) {
-            return res.render('login',{
+            return res.render('login', {
                 message: "Usuario no esta registrado"
             });
         }
         if (!bcrypt.compareSync(req.body.password, result.password)) {
-            return res.render('login',{
+            return res.render('login', {
                 message: "Contraseña no es correcta"
             });
         }
@@ -159,7 +165,7 @@ app.post('/delete-register', (req, res) => {
             return console.log(err)
         }
         res.render('register/delete-register', {
-            name : result.name
+            name: result.name
         });
     });
 });

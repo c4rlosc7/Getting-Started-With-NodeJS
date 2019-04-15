@@ -110,6 +110,43 @@ Font Awesome is a full suite of 675 pictographic icons for easy scalable vector 
 
 https://www.npmjs.com/package/font-awesome
  
+# express-session local
+
+> npm install express-session
+
+```javascript
+ var session = require('express-session')
+ ```
+https://www.npmjs.com/package/express-session
+
+ # memorystore cloud
+
+> express-session full featured MemoryStore module without leaks!
+
+> npm i memorystore
+
+https://www.npmjs.com/package/memorystore
+
+# Middleware
+
+Middleware makes it easier for software developers to implement communication and input/output, so they can focus on the specific purpose of their application. It gained popularity in the 1980s as a solution to the problem of how to link newer applications to older legacy systems, although the term had been in use since 1968
+
+# node-localstorage
+
+> npm i node-localstorage
+
+# jsonwebtoken
+
+An implementation of JSON Web Tokens.
+
+> npm i jsonwebtoken
+
+# morgan
+
+HTTP request logger middleware for node.js
+
+> npm i morgan
+
 
 
 

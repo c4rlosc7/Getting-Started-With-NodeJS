@@ -3,7 +3,8 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const { PORT } = require('./config/config');
+const session = require('express-session');
+const { PORT, PORT_URLDB } = require('./config/config');
 require('./helpers/helpers');
 
 // Public directory
@@ -18,6 +19,22 @@ app.use('/js', express.static(dirNodeModules + '/jquery/dist'));
 app.use('/js', express.static(dirNodeModules + '/popper.js/dist'));
 app.use('/js', express.static(dirNodeModules + '/bootstrap/dist/js'));
 
+// Session
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}));
+
+// Midleware session
+app.use((req, res, next) => {
+    if (req.session.userSession){
+        res.locals.session = true;
+        res.locals.name = req.session.name;
+    }
+    next()
+});
+
 // Body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -25,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(require('./routes/routes'));
 
 // Connect to mongo db
-mongoose.connect('mongodb://localhost:27017/db_node_uda', { useNewUrlParser: true }, (err, result) =>{
+mongoose.connect(PORT_URLDB, { useNewUrlParser: true }, (err, result) =>{
     if (err) {
         return console.log(err)
     }
