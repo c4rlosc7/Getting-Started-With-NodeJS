@@ -1,18 +1,19 @@
 # Mongo DB
 
-https://www.mongodb.com/download-center/community
-
-mongodb-win32-x86_64-2008plus-ssl-4.0.8
+[Download mongoDB](https://www.mongodb.com/download-center/community)
 
 - Descargar mongo-db zip
 
-- Descomprimir en C:/User/carlos/mongo-db
+- Descomprimir en C:/User/UserName/mongo-db
 
-- Crear una carpeta para almanecenar los datos __C:/User/carlos/mongo-data__
+- Crear una carpeta para almanecenar los datos 
+  - __C:/User/carlos/mongo-data__
 
-> C:\Users\C4rlosc7\mongo-db\bin>mongod.exe --dbpath=/users/carlos/mongo-data
+- Dentro de la carpeta **C:/User/UserName/mongo-db** ejecutar cmd
+  - > C:\Users\C4rlosc7\mongo-db\bin>mongod.exe --dbpath=/users/carlos/mongo-data
 
-documentacion: http://mongodb.github.io/node-mongodb-native/3.2/quick-start/quick-start/
+Documentacion: 
+[Quick-Start](http://mongodb.github.io/node-mongodb-native/3.2/quick-start/quick-start/)
 
 ***
 

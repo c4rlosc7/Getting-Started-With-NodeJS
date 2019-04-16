@@ -2,14 +2,16 @@
 
 ## Start app
 
-### install dependency
+### Install dependency
+
 > npm install 
 
-### run project
+### Run project
+
 > npm start
 
-https://foundation-nodejs.herokuapp.com/
 ***
+
 # Dependencies
 
 - body-parser
@@ -26,7 +28,7 @@ https://foundation-nodejs.herokuapp.com/
 
 Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
 
-## Installation
+## Installation mongoose
 
 > npm i mongoose
 
@@ -60,22 +62,21 @@ const BlogPost = new Schema({
   date: Date
 });
 ```
- ## Accessing a Model
+## Accessing a Model
 
- Once we define a model through mongoose.model('ModelName', mySchema), we can access it through the same function.
+Once we define a model through mongoose.model('ModelName', mySchema), we can access it through the same function.
 
 ```javascript
- const MyModel = mongoose.model('ModelName', mySchema);
- ```
-> mongod.exe --dbpath=/users/C4rlosc7/mongo-data
+const MyModel = mongoose.model('ModelName', mySchema);
+```
 
-# mongoose-unique-validator
+# Mongoose-unique-validator
 
 mongoose-unique-validator is a plugin which adds pre-save validation for unique fields within a Mongoose schema.
 
 > npm i mongoose-unique-validator
 
-https://www.npmjs.com/package/mongoose-unique-validator
+[Mongoose validator](https://www.npmjs.com/package/mongoose-unique-validator)
 
 ```javascript
 // on model.js
@@ -85,7 +86,7 @@ https://www.npmjs.com/package/mongoose-unique-validator
  mySchema.plugin(uniqueValidator);
  ```
 
-# bcrypt
+# Bcrypt
 
 bcrypt is a password hashing function designed by Niels Provos and David Mazières, based on the Blowfish cipher, and presented at USENIX in 1999. Besides incorporating a salt to protect against rainbow table attacks, bcrypt is an adaptive function: over time, the iteration count can be increased to make it slower, so it remains resistant to brute-force search attacks even with increasing computation power.
 
@@ -95,7 +96,7 @@ There are implementations of bcrypt for C, C++, C#, Go, Java, JavaScript, Elixir
 
 > npm i bcrypt
 
-https://www.npmjs.com/package/bcrypt
+[Bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ```javascript
  var hash = bcrypt.hashSync(myPlaintextPassword, salt);
@@ -108,44 +109,46 @@ Font Awesome is a full suite of 675 pictographic icons for easy scalable vector 
 > npm i font-awesome
 --bootstrap/dist/js
 
-https://www.npmjs.com/package/font-awesome
+[Font-awesome](https://www.npmjs.com/package/font-awesome)
  
-# express-session local
+# Express-session local
 
 > npm install express-session
 
 ```javascript
  var session = require('express-session')
  ```
-https://www.npmjs.com/package/express-session
+[Express-Session](https://www.npmjs.com/package/express-session)
 
- # memorystore cloud
+ # Memorystore cloud
 
 > express-session full featured MemoryStore module without leaks!
 
 > npm i memorystore
 
-https://www.npmjs.com/package/memorystore
+[MemoryStore](https://www.npmjs.com/package/memorystore)
 
 # Middleware
 
 Middleware makes it easier for software developers to implement communication and input/output, so they can focus on the specific purpose of their application. It gained popularity in the 1980s as a solution to the problem of how to link newer applications to older legacy systems, although the term had been in use since 1968
 
-# node-localstorage
+# Node-localstorage
 
 > npm i node-localstorage
 
-# jsonwebtoken
+# Jsonwebtoken
 
 An implementation of JSON Web Tokens.
 
 > npm i jsonwebtoken
 
-# morgan
+# Morgan
 
 HTTP request logger middleware for node.js
 
 > npm i morgan
+
+https://foundation-nodejs.herokuapp.com/
 
 
 
