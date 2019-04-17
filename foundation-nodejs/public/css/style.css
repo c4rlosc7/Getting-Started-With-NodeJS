@@ -11,7 +11,7 @@ header{
 
 section{
     margin: 30px 10px;
-    min-height: 600px;
+    min-height: 500px;
 }
 
 footer{
@@ -26,11 +26,17 @@ h1{
     margin-bottom: 16px;
 }
 
-  /* mouse over link */
-  a:hover {
-    background-color: white !important;
-    color: blue !important;
-  }
+/* mouse over link */
+li a:hover {
+  background-color: white !important;
+  color: #47a9a9 !important;
+  font-weight: bold !important;
+}
+
+.container-section{
+  margin-left: 36px;
+  margin-right: 36px;
+}
 
 .header-title{
     font-size: 30px;
