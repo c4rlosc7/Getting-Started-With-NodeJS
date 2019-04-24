@@ -4,17 +4,9 @@
     <div class="container-section">
         <div class="row justify-content-sm-center">
             <h1>Cursos disponibles</h1>
-        </div>
-        <div class="row table-courses">
-            <div class="col-sm-1">INDICE</div>
-            <div class="col-sm-2">NOMBRE</div>
-            <div class="col-sm-3">DESCRIPCIÓN</div>
-            <div class="col-sm-1">COSTO</div>
-            <div class="col-sm-2">MODALIDAD</div>
-            <div class="col-sm-2">DURACIÓN</div>
-            <div class="col-sm-1">ESTADO</div>
-        </div>
-        {{saveCourse name description cost modal duration state}}
+        </div>        
+        
+        {{saveCourse name description cost modal duration state imagen}}
         {{{getCoursesList courseList}}}
     </div>    
 </section>

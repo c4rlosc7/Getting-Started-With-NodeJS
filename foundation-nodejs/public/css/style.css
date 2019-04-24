@@ -127,3 +127,18 @@ li a:hover {
     float: right;
     padding-top: 16px;
   }
+
+  .img-course{
+    width: 100px;
+    height: 100px;
+  }
+
+  .padding-0{
+    padding: 0;
+  }
+
+  .c-modalidad{
+    color: black;
+    font-weight: bold;
+    background-color: #f3f314;
+  }

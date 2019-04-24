@@ -35,6 +35,10 @@ const courseSchema = new Schema({
     state: {
         type: String,
         default: "Disponible"
+    },
+    imagen: {
+        type: Buffer,
+        required: true
     }
 });
 

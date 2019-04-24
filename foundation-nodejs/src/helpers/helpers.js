@@ -2,16 +2,17 @@ const hbs = require('hbs');
 const dataCourses = require('../../data/list-courses.json');
 const dataRegisters = require('../../data/list-register.json');
 
-hbs.registerHelper('saveCourse', (name, description, cost, modal, duration, state) => {
+hbs.registerHelper('saveCourse', (name, description, cost, modal, duration, state, imagen) => {
     let studentList = dataCourses;
-    if (name && description && cost && modal && duration && state) {
+    if (name && description && cost && modal && duration && state && imagen) {
         let obj = {
             name: name,
             description: description,
             cost: cost,
             modal: modal,
             duration: duration,
-            state: state
+            state: state,
+            imagen: imagen
         }
         studentList.push(obj);
     }
@@ -23,14 +24,27 @@ hbs.registerHelper('getCoursesList', (courseList) => {
     let index = 1;
     let textStudent = ''
     studentList.forEach(element => {
-        textStudent = textStudent + '<div class="row border-table"><div class="col-sm-1">' + index + '</div>' +
-            '<div class="col-sm-2">' + element.name + '</div>' +
-            '<div class="col-sm-3 text-truncate">' + element.description + '</div>' +
-            '<div class="col-sm-1">' + element.cost + '</div>' +
-            '<div class="col-sm-2">' + element.modal + '</div>' +
-            '<div class="col-sm-2">' + element.duration + '</div>' +
-            '<div class="col-sm-1">' + element.state + '</div></div>';
+        let imagen = element.imagen.toString('base64');
+        textStudent = textStudent + 
+            '<div class="row border-table">' + 
+                '<div class="col-sm-3">' +
+                    '<div class="row">' + 
+                        '<div class="col-sm-12"><img src="data:img/png;base64,' + imagen + '" class="img-course"></div>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="col-sm-9">' +
+                    '<div class="row"><b>' + element.name + '</b></div>' +
+                    '<div class="row">' + element.description + '</div>' +
+                    '<div class="row"><b>$' + element.cost + '</b></div>' +
+                    '<div class="row">' +
+                        '<div class="col-sm-4 padding-0"><label class="c-modalidad">' + element.modal + '</label></div>' +
+                        '<div class="col-sm-4">' + element.duration + 'Horas</div>' +
+                        '<div class="col-sm-4">' + element.state + '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div><br>';
         index++;
+        imagen = ''
     });
     return textStudent;
 });

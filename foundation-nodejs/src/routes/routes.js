@@ -20,16 +20,16 @@ app.set('views', dirViews);
 app.set(morgan('dev'));
 
 // Upload use multer middleware
-var storage = multer.diskStorage({
+/*var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'public/uploads')
     },
     filename: function (req, file, cb) {
         cb(null, 'img' + Date.now() + path.extname(file.originalname))
     }
-})
+})*/
 
-var upload = multer({ storage: storage });
+var upload = multer({  });
 
 /**
  * Render to index 
@@ -56,7 +56,8 @@ app.post('/save-course', upload.single('imagen'), (req, res) => {
         cost: req.body.cost,
         modal: req.body.modal,
         duration: req.body.duration,
-        state: req.body.state
+        state: req.body.state,
+        imagen: req.file.buffer
     })
     courseModel.save((err, result) => {
         if (err) {
