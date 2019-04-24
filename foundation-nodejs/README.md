@@ -150,6 +150,18 @@ HTTP request logger middleware for node.js
 
 https://foundation-nodejs.herokuapp.com/
 
+# SendGrid
+
+SendGrid is a leader in trusted email delivery. Our powerful cloud-based solution sends transactional and marketing email for over 82,000 paying customers, allowing them to focus on their business, instead of their email infrastructure.
+
+
+# Multer
+
+Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
+
+
+> npm i multer
+
 
 
 

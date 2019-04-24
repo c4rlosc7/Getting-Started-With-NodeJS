@@ -6,6 +6,7 @@ const hbs = require('hbs');
 const RegisterModel = require('./../models/registerModel');
 const CourseModel = require('./../models/courseModel');
 const bcrypt = require('bcrypt');
+const multer = require('multer');
 require('../helpers/helpers');
 
 // Partials directory
@@ -17,6 +18,9 @@ const dirViews = path.join(__dirname, '../../template/views');
 app.set('view engine', 'hbs');
 app.set('views', dirViews);
 app.set(morgan('dev'));
+
+// Upload use multer middleware
+var upload = multer({ dest: 'uploads/' });
 
 /**
  * Render to index 
@@ -35,7 +39,7 @@ app.get('/form-course', (req, res) => {
 /**
  * Call helper to save-course
  */
-app.post('/save-course', (req, res) => {
+app.post('/save-course', upload.single('imagen'), (req, res) => {
     let courseModel = new CourseModel({
         name: req.body.nameCourse,
         description: req.body.description,
