@@ -6,7 +6,8 @@
         "cost": 30000,
         "modal": "Presencial",
         "duration": 32,
-        "state": "disponible"
+        "state": "disponible",
+        "imagen": ""
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "cost": 30000,
         "modal": "Presencial",
         "duration": 32,
-        "state": "disponible"
+        "state": "disponible",
+        "imagen": ""
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "cost": 30000,
         "modal": "Presencial",
         "duration": 32,
-        "state": "disponible"
+        "state": "disponible",
+        "imagen": ""
     },
     {
         "id": 4,
@@ -33,6 +36,7 @@
         "cost": 30000,
         "modal": "Presencial",
         "duration": 32,
-        "state": "disponible"
+        "state": "disponible",
+        "imagen": ""
     }
 ]

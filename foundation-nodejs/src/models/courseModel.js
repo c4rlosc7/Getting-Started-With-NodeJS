@@ -30,7 +30,7 @@ const courseSchema = new Schema({
         type: Number,
         default: 12,
         min: 0,
-        max: 100
+        max: 1000
     },
     state: {
         type: String,

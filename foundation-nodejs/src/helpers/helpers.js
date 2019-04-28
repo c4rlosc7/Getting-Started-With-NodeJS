@@ -3,7 +3,7 @@ const dataCourses = require('../../data/list-courses.json');
 const dataRegisters = require('../../data/list-register.json');
 
 hbs.registerHelper('saveCourse', (name, description, cost, modal, duration, state, imagen) => {
-    let studentList = dataCourses;
+    let studentList = [];
     if (name && description && cost && modal && duration && state && imagen) {
         let obj = {
             name: name,
@@ -22,7 +22,7 @@ hbs.registerHelper('getCoursesList', (courseList) => {
     // let studentList = dataCourses;
     let studentList = courseList;
     let index = 1;
-    let textStudent = ''
+    let textStudent = '' 
     studentList.forEach(element => {
         let imagen = element.imagen.toString('base64');
         textStudent = textStudent + 

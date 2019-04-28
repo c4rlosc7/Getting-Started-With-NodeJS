@@ -49,7 +49,6 @@ app.get('/form-course', (req, res) => {
  * Call helper to save-course
  */
 app.post('/save-course', upload.single('imagen'), (req, res) => {
-    console.log(req.file)
     let courseModel = new CourseModel({
         name: req.body.nameCourse,
         description: req.body.description,
