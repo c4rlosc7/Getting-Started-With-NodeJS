@@ -142,3 +142,11 @@ li a:hover {
     font-weight: bold;
     background-color: #f3f314;
   }
+
+  input {
+    padding:10px;
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+  }

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const { PORT, PORT_URLDB } = require('./config/config');
+var MemoryStore = require('memorystore')(session)
 require('./helpers/helpers');
 
 // Public directory
@@ -21,16 +22,22 @@ app.use('/js', express.static(dirNodeModules + '/bootstrap/dist/js'));
 
 // Session
 app.use(session({
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+        checkPeriod: 86400000 // prune expired entries every 24h
+    }),
     secret: 'keyboard cat',
-    resave: false,
+    resave: true,
     saveUninitialized: true
 }));
 
 // Midleware session
 app.use((req, res, next) => {
-    if (req.session.userSession){
+    console.log('xxxxxxxxxxxxxxxxxxxxxxx')
+    console.log(req.session)
+    if (req.session) {
         res.locals.session = true;
-        res.locals.name = req.session.name;
+        res.locals.id = req.session.id;
     }
     next()
 });
@@ -42,7 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(require('./routes/routes'));
 
 // Connect to mongo db
-mongoose.connect(PORT_URLDB, { useNewUrlParser: true }, (err, result) =>{
+mongoose.connect(PORT_URLDB, { useNewUrlParser: true }, (err, result) => {
     if (err) {
         return console.log(err)
     }

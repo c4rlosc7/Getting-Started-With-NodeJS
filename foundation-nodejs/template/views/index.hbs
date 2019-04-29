@@ -6,8 +6,12 @@
             <h1>CURSOS-DEV</h1>
         </div>
         <div>
-            <a class="btn btn-primary" href="/form-register" role="button">Registrarse</a>
-            <a class="btn btn-light" href="/form-login" role="button">Autenticación</a>
+            {{#if session}}
+                <a class="btn btn-primary" href="/exit" role="button">Salir</a>
+            {{else}}
+                <a class="btn btn-primary" href="/form-register" role="button">Registrarse</a>
+                <a class="btn btn-light" href="/form-login" role="button">Ingresar</a>            
+            {{/if}}
         </div>        
     </center>
 </section>

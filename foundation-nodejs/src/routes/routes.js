@@ -7,6 +7,7 @@ const RegisterModel = require('./../models/registerModel');
 const CourseModel = require('./../models/courseModel');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
+const session = require('express-session');
 require('../helpers/helpers');
 
 // Partials directory
@@ -19,6 +20,12 @@ app.set('view engine', 'hbs');
 app.set('views', dirViews);
 app.set(morgan('dev'));
 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
+
 // Upload use multer middleware
 /*var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -29,7 +36,7 @@ app.set(morgan('dev'));
     }
 })*/
 
-var upload = multer({  });
+var upload = multer({});
 
 /**
  * Render to index 
@@ -105,8 +112,6 @@ app.post('/save-register', (req, res) => {
         delete: false
     });
     registerModel.save((err, result) => {
-        console.log(err)
-        console.log(result)
         if (err) {
             res.render('register/welcome', {
                 showRegister: err
@@ -115,7 +120,7 @@ app.post('/save-register', (req, res) => {
         req.session.userSession = result._id
         req.session.name = result.name
         res.render('register/welcome', {
-            showRegister: result.name + ' session ' + req.session.userSession,
+            showRegister: result.name,
             session: true,
             name: req.session.name
         });
@@ -126,22 +131,24 @@ app.post('/save-register', (req, res) => {
  * 
  */
 app.post('/login', (req, res) => {
-    RegisterModel.findOne({ name: req.body.name }, (err, result) => {
+    RegisterModel.findOne({ document: req.body.document }, (err, result) => {
         if (err) {
             console.log(err)
         }
         if (!result) {
-            return res.render('login', {
+            return res.render('login/login-welcome', {
                 message: "Usuario no esta registrado"
             });
         }
-        if (!bcrypt.compareSync(req.body.password, result.password)) {
-            return res.render('login', {
+        if (!bcrypt.compareSync(req.body.psw, result.password)) {
+            return res.render('login/login-welcome', {
                 message: "Contraseña no es correcta"
             });
         }
-        res.render('login', {
-            message: 'Bienvendio ' + result.name
+        req.session.id = result._id
+        req.session.name = result.name
+        res.render('login/login-welcome', {
+            message: ' Bienvendio ' + result.name 
         });
     });
 });
@@ -150,7 +157,18 @@ app.post('/login', (req, res) => {
  * Render to login form
  */
 app.get('/form-login', (req, res) => {
-    res.render('login', {});
+    res.render('login/form-login', {});
+});
+
+/**
+ * Exit session()
+ */
+app.get('/exit', (req, res) => {
+    console.log(req.session)
+    req.session.destroy((err) => {
+        if (err) return console.log(err);
+    })
+    res.redirect('/')
 });
 
 //var hash = bcrypt.hashSync(req.body.name, 10);

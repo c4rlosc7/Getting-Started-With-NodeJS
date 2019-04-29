@@ -45,8 +45,12 @@
                     </li>
                 </ul>
             </div>
-            <div>
-                <a type="button" href="/form-login" class="btn btn-light">Autenticación</a>
+            <div>                
+                {{#if session}}
+                    <a class="btn btn-primary" href="/exit" role="button">Salir</a>
+                {{else}}
+                    <a type="button" href="/form-login" class="btn btn-light">Ingresar</a>            
+                {{/if}}                
             </div>
         </nav>
     </header>
