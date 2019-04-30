@@ -33,9 +33,7 @@ app.use(session({
 
 // Midleware session
 app.use((req, res, next) => {
-    console.log('xxxxxxxxxxxxxxxxxxxxxxx')
-    console.log(req.session)
-    if (req.session) {
+    if (req.session.name) {
         res.locals.session = true;
         res.locals.id = req.session.id;
     }

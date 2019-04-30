@@ -7,7 +7,6 @@ const RegisterModel = require('./../models/registerModel');
 const CourseModel = require('./../models/courseModel');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
-const session = require('express-session');
 require('../helpers/helpers');
 
 // Partials directory
@@ -19,12 +18,6 @@ const dirViews = path.join(__dirname, '../../template/views');
 app.set('view engine', 'hbs');
 app.set('views', dirViews);
 app.set(morgan('dev'));
-
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true
-}))
 
 // Upload use multer middleware
 /*var storage = multer.diskStorage({
@@ -67,12 +60,12 @@ app.post('/save-course', upload.single('imagen'), (req, res) => {
     })
     courseModel.save((err, result) => {
         if (err) {
-            res.render('course/list-courses', {
+            res.render('course/successful-course', {
                 showCourse: err
             });
         }
-        res.render('course/list-courses', {
-            showCourse: result
+        res.render('course/successful-course', {
+            showCourse: result.name
         });
     })
 });
@@ -117,18 +110,14 @@ app.post('/save-register', (req, res) => {
                 showRegister: err
             });
         }
-        req.session.userSession = result._id
-        req.session.name = result.name
         res.render('register/welcome', {
-            showRegister: result.name,
-            session: true,
-            name: req.session.name
+            showRegister: result.name
         });
     });
 });
 
 /**
- * 
+ * Method login app
  */
 app.post('/login', (req, res) => {
     RegisterModel.findOne({ document: req.body.document }, (err, result) => {
@@ -148,7 +137,9 @@ app.post('/login', (req, res) => {
         req.session.id = result._id
         req.session.name = result.name
         res.render('login/login-welcome', {
-            message: ' Bienvendio ' + result.name 
+            message: ' Bienvendio ' + result.name,
+            name: result.name,
+            sesion: true
         });
     });
 });
@@ -164,7 +155,6 @@ app.get('/form-login', (req, res) => {
  * Exit session()
  */
 app.get('/exit', (req, res) => {
-    console.log(req.session)
     req.session.destroy((err) => {
         if (err) return console.log(err);
     })
@@ -191,7 +181,6 @@ app.get('/list-register', (req, res) => {
  * Delete register
  */
 app.post('/delete-register', (req, res) => {
-    console.log("Delete")
     RegisterModel.findOneAndDelete({ name: req.body.name }, req.body, (err, result) => {
         if (err) {
             return console.log(err)
